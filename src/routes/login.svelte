@@ -1,7 +1,7 @@
 <script context="module">
     export async function preload({ params }, { user }) {
         if (user) {
-            this.redirect(302, `/`);
+            this.redirect(302, `/overview`);
         }
     }
 </script>
@@ -20,7 +20,7 @@
         console.log(response);
         if (response.token) {
             $session.token = response.token;
-            goto('/');
+            goto('/overview');
         }
     }
 </script>
