@@ -1,12 +1,12 @@
 <script>
 	import { stores } from '@sapper/app';
-	import  { post } from 'utils.js';
+	import { post } from 'utils.js';
 
-	const { page, session } = stores();
 	export let segment;
+	const { page, session } = stores();
 
-	async function logout(){
-		await post ('auth/logout');
+	async function logout() {
+		await post('auth/logout');
 		$session.user = null;
 		goto('/');
 	}
@@ -57,14 +57,14 @@
 		display: block;
 	}
 </style>
-{JSON.stringify({$session})}
+
 <nav>
 	<ul>
 		{#if $session.token}
 			<li><a aria-current="{segment === 'logout' ? 'page' : undefined}" href="{logout}" on:click|preventDefault={logout}>Log out</a></li>
 		{:else}
-		<li><a aria-current="{segment === 'register' ? 'page' : undefined}" href="register">register</a></li>
-		<li><a aria-current="{segment === 'login' ? 'page' : undefined}" href="login">login</a></li>
+			<li><a aria-current="{segment === 'login' ? 'page' : undefined}" href="login">Log in</a></li>
+			<li><a aria-current="{segment === 'register' ? 'page' : undefined}" href="register">Register</a></li>
 		{/if}
 	</ul>
 </nav>

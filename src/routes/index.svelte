@@ -1,7 +1,6 @@
 <script>
 	import pepe from 'images/pepe.jpg';
 </script>
-
 <style>
 	h1, figure, p {
 		text-align: center;
@@ -37,14 +36,11 @@
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Svelte</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h1>GOOOD!!!</h1>
 
 <figure>
 	<img alt="pepe" src="{pepe}">
-	<figcaption>Have fun with Sapper!</figcaption>
 </figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>

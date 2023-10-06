@@ -4,14 +4,13 @@ import compression from 'compression';
 import * as sapper from '@sapper/server';
 import session from 'express-session';
 import sessionFileStore from 'session-file-store';
-const { json } = require('body-parser');
 
 const FileStore = sessionFileStore(session);
-
+const { json } = require('body-parser');
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
-polka() // You can also use Express
+polka()
 	.use(
 		compression({ threshold: 0 }),
 		json(),
@@ -24,13 +23,9 @@ polka() // You can also use Express
 				maxAge: 31536000
 			},
 			store: new FileStore({
-				path: process.env.NOW ? `/tmp/sessions` : `.sessions`
+				path: `.sessions`
 			})
 		}),
-	)
-	.use(
-		compression({ threshold: 0 }),
-		sirv('static', { dev }),
 		sapper.middleware({
 			session: req => ({
 				user: req.session && req.session.user,
