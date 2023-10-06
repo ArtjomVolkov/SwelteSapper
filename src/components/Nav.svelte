@@ -7,7 +7,7 @@
 
 	async function logout() {
 		await post('auth/logout');
-		$session.user = null;
+		$session.token = null;
 		goto('/');
 	}
 </script>
@@ -57,7 +57,7 @@
 		display: block;
 	}
 </style>
-
+{JSON.stringify($session)}
 <nav>
 	<ul>
 		{#if $session.token}

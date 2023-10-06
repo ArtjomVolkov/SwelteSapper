@@ -1,3 +1,10 @@
+<script context="module">
+    export async function preload({ params }, { user }) {
+        if (user) {
+            this.redirect(302, `/`);
+        }
+    }
+</script>
 <script>
     import { goto, stores } from '@sapper/app';
     import { post } from 'utils.js';
@@ -19,7 +26,7 @@
 </script>
 
 <svelte:head>
-    <title>Sign in • Conduit</title>
+    <title>Sign in • Shop</title>
 </svelte:head>
 
 <div class="auth-page">
